@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* إضافة box-sizing لتحسين التعامل مع الأبعاد */
+}
+body {
+    background: #222;
+    color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.crud {
+    width: 80%;
+    margin: 20px auto; /* زيادة margin علوي وسفلي */
+    max-width: 1000px; /* تحديد أقصى عرض */
+}
+.head {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px 0 20px; /* زيادة المسافة السفلية */
+}
+.head p {
+    color: #ccc;
+    font-size: 0.9em;
+}
+input {
+    width: 100%;
+    height: 40px; /* زيادة الارتفاع قليلاً */
+    outline: none;
+    border: none;
+    background: #111;
+    margin: 8px 0; /* زيادة margin علوي وسفلي */
+    border-radius: 6px;
+    padding: 8px; /* زيادة padding */
+    color: #fff;
+    font-size: 1em; /* زيادة حجم الخط */
+}
+input:focus {
+    background: #000;
+    transform: scale(1.02); /* تعديل بسيط في scale */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2); /* إضافة ظل بسيط */
+}
+.price {
+    display: flex; /* استخدام flexbox لتنظيم حقول السعر */
+    justify-content: space-between;
+    gap: 10px; /* مسافة بين الحقول */
+    flex-wrap: wrap; /* للسماح للحقول بالنزول لسطر جديد في الشاشات الصغيرة */
+}
+.price input {
+    width: calc(25% - 8px); /* توزيع متساوٍ للحقول مع مراعاة الـ gap */
+    margin: 0; /* إلغاء margin لـ input داخل price */
+}
+#total {
+    background: #a00;
+    padding: 5px 10px; /* زيادة padding */
+    border-radius: 4px;
+    margin-left: 10px; /* مسافة من اليسار */
+    min-width: 120px; /* تحديد عرض أدنى */
+    text-align: center;
+    display: inline-block; /* لكي يعمل padding بشكل صحيح */
+}
+#total::before {
+    content: 'Total: ';
+}
+button {
+    width: 100%;
+    height: 40px; /* زيادة الارتفاع */
+    border: none;
+    cursor: pointer;
+    background-color: #390053;
+    color: #fff;
+    border-radius: 20px;
+    transition: 0.3s ease; /* تعديل transition */
+    font-size: 1.1em; /* زيادة حجم الخط */
+    margin-top: 15px; /* مسافة علوية */
+}
+#deleteAll {
+    margin: 20px 0;
+    text-align: center; /* توسيط زر Delete All */
+}
+#deleteAll button {
+    width: 50%; /* تقليل عرض زر Delete All */
+    max-width: 300px; /* أقصى عرض لزر Delete All */
+    margin-bottom: 15px;
+}
+button:hover {
+    background: #51025f;
+    letter-spacing: 1.5px; /* زيادة letter-spacing */
+    box-shadow: 0 0 10px rgba(160, 0, 160, 0.5); /* إضافة ظل عند hover */
+}
+.btnSearch {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* مسافة بين أزرار البحث */
+    margin-top: 10px;
+}
+.btnSearch button {
+    width: 48%; /* توزيع أزرار البحث */
+    margin-top: 0;
+}
+table {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0; /* زيادة margin علوي وسفلي */
+    border-collapse: collapse; /* لإزالة الفراغات بين الخلايا */
+}
+table th, table td {
+    padding: 12px 8px; /* زيادة padding للخلايا */
+    border: 1px solid #444; /* إضافة حدود بسيطة */
+}
+table th {
+    text-transform: capitalize;
+    background-color: #333;
+    font-weight: bold;
+}
+table tr:nth-child(even) { /* تلوين الصفوف الفردية والزوجية */
+    background-color: #2b2b2b;
+}
+table tr:hover {
+    background-color: #3a3a3a;
+}
+table button {
+    width: auto;
+    padding: 8px 15px;
+    height: auto;
+    margin: 0 5px;
+    border-radius: 10px;
+    font-size: 0.9em;
+}
+table button#update {
+    background-color: #044a04; /* لون أخضر للـ Update */
+}
+table button#update:hover {
+    background-color: #066b06;
+}
+table button#delete {
+    background-color: #880202; /* لون أحمر للـ Delete */
+}
+table button#delete:hover {
+    background-color: #a00202;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .crud {
+        width: 95%;
+    }
+    .price input {
+        width: calc(50% - 8px); /* حقلين في الصف الواحد على الشاشات الأصغر */
+    }
+    #total {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .btnSearch {
+        flex-direction: column; /* أزرار البحث تحت بعضها */
+    }
+    .btnSearch button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    table th, table td {
+        padding: 8px 5px;
+        font-size: 0.9em;
+    }
+}
+@media (max-width: 480px) {
+    .price input {
+        width: 100%; /* حقل واحد في الصف الواحد على أصغر الشاشات */
+    }
+    table {
+        font-size: 0.8em;
+    }
+    table button {
+        padding: 5px 10px;
+    }
+}
